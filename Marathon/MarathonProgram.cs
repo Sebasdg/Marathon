@@ -29,7 +29,7 @@ namespace Marathon {
 			pauseStop3.SetLenghtInSeconds(2).SetLocationInRace(70).SetMaxPausable(2).SetName("3");
 			Logger.LogEvent($"New stop added to the race! name: {pauseStop3.Name}  pos: {pauseStop3.PauseStopLocationInRace}  length: {pauseStop3.PauseLenghtInSeconds}");
 
-			Random rnd = new Random();
+			Random rnd = new Random(DateTime.Now.Second + DateTime.Now.Millisecond);
 			for (int i = 0; i < 10; i++) {
 				int runspeed = rnd.Next(50, 150);
 				int iD = i;
@@ -40,7 +40,7 @@ namespace Marathon {
 			}
 
 			marathonManager.StartRace();
-			Time.TimeScale = 5;
+			Time.TimeScale = 10;
 
 			//needs to run as last
 			engine.Run();
